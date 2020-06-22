@@ -4,7 +4,7 @@ const caesar = function(str, shift) {
  let alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
  let lowerCaseStr = str.toLowerCase();
 
- for (i = 0; i < str.length; i++) {
+ for (i = 0; i < lowerCaseStr.length; i++) {
   let currentLetter = lowerCaseStr[i];
   if(currentLetter === " ") {
    solved += currentLetter;
@@ -12,14 +12,17 @@ const caesar = function(str, shift) {
   } 
 
  let currentIndex = alphabet.indexOf(currentLetter);
- let newIndex = currentIndex + shift;
- 
+
  if (shift < 0) {
   do {
    shift += 26;
   }
   while (shift < 0);
 }
+
+ let newIndex = currentIndex + shift;
+ 
+
 
  if (str[i] === str[i].toUpperCase()) {
   solved += alphabet[newIndex].toUpperCase();
